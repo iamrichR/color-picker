@@ -1,0 +1,18 @@
+body{
+    background-color: #cccccc;
+}
+
+.container{
+    width: 85%;
+    margin: 0 auto;
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+#canvas{
+    margin: 4em;
+}
+
+button{
+    margin: 2em auto;
+}

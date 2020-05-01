@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>RGBA Color Picker Prototype</title>
+</head>
+<body>
+    <div class="container">
+        <canvas id="canvas" width="400" height="300"></canvas>
+        <textarea id="rgba-code-display" cols="30" rows="2" readonly></textarea>
+        <div class="sliders">
+            <label for="rVal">Red</label>
+            <input id="rVal" type="range" min="0" max="255" value="128">
+            <label for="gVal">Green</label>
+            <input id="gVal" type="range" min="0" max="255" value="128">
+            <label for="bVal">Blue</label>
+            <input id="bVal" type="range" min="0" max="255" value="128">
+            <label for="aVal">Alpha</label>
+            <input id="aVal" type="range" min="0" max="100" value="100">
+        </div>
+        <button onClick="updateCanvas();">Update</button>
+    </div>
+</body>
+</html>

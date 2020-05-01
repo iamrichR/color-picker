@@ -1,0 +1,30 @@
+body{
+    background-color: #ccc;
+}
+
+.container{
+    width: 85%;
+    margin: 5% auto;
+    background-color: #ccc;
+}
+
+.slider-bg{
+    margin: 4em;
+    width: 100%;
+    padding: 0.5em;
+    background: linear-gradient(to right, hsla(0,100%,50%,1.0), 
+                hsla(25,100%,50%,1.0),
+                hsla(60,100%,50%,1.0),
+                hsla(120,100%,50%,1.0),
+                hsla(180,100%,50%,1.0),
+                hsla(240,100%,50%,1.0),
+                hsla(300,100%,50%,1.0),
+                hsla(360,100%,50%,1.0));
+                /*DEFINITELY do this in Javascript instead*/
+}
+
+#slider{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

@@ -8,7 +8,7 @@ body{
     background-color: #ccc;
 }
 
-.slider-bg{
+#hue-slider-bg{
     margin: 4em;
     width: 100%;
     padding: 0.5em;
@@ -20,10 +20,34 @@ body{
                 hsla(240,100%,50%,1.0),
                 hsla(300,100%,50%,1.0),
                 hsla(360,100%,50%,1.0));
-                /*DEFINITELY do this in Javascript instead*/
 }
 
-#slider{
+#hue-slider{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#sat-slider-bg{
+    margin: 4em;
+    width: 100%;
+    padding: 0.5em;
+    background: linear-gradient(to right, hsla(57,0%,50%,1.0), hsla(57,100%,50%,1.0));
+}
+
+#sat-slider{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#light-slider-bg{
+    margin: 4em;
+    width: 100%;
+    padding: 0.5em;
+}
+
+#light-slider{
     width: 100%;
     margin: 0;
     padding: 0;

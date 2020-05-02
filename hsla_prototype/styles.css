@@ -8,7 +8,7 @@ body{
     background-color: #ccc;
 }
 
-#hue-slider-bg{
+/*#hue-slider-bg{
     margin: 4em;
     width: 100%;
     padding: 0.5em;
@@ -20,12 +20,28 @@ body{
                 hsla(240,100%,50%,1.0),
                 hsla(300,100%,50%,1.0),
                 hsla(360,100%,50%,1.0));
+}*/
+
+#hue-container{
+    margin: 4em;
+    width: 100%;
+    padding: 0.5em;
+}
+
+#hue-slider-bg{
+    width: 100%;
+    height: 3em;
+    padding: 0.5em 0;
+    box-sizing: border-box;
 }
 
 #hue-slider{
-    width: 100%;
+    width: 98%;
     margin: 0;
     padding: 0;
+    position: relative;
+    top: -2.5em;
+    left: 1%;
 }
 
 #sat-container{

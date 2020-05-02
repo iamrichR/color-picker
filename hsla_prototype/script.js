@@ -24,18 +24,34 @@ window.onload = function(){
     satSlider.onchange = function(){
         sat = satSlider.value;
         updateLightBg();
+        updateHueBg();
         console.log(`sat: ${sat}`);
     };
 
     lightSlider.onchange = function(){
         light = lightSlider.value;
         updateSatBg();
+        updateHueBg();
         console.log(`light: ${light}`);
     };
 
-
+    updateHueBg();
     updateSatBg();
     updateLightBg();
+}
+
+function updateHueBg(){
+    let arrSize = 10;
+    let colorStops = [];
+    for(let i = 0; i < arrSize; i++){
+        let hueScaled = i*36;
+        colorStops.push(`hsla(${hueScaled},${sat}%,${light}%,1.0)`);
+    }
+
+    //adding a final red endpoint because of how the scaling worked out
+    colorStops.push(`hsla(360,${sat}%,${light}%,1.0)`);
+    let canvas = document.getElementById('hue-slider-bg');
+    applyGradient(colorStops, canvas);
 }
 
 function updateSatBg(){

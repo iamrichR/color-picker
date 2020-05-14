@@ -2,24 +2,28 @@ function setupSliders(){
     let hue = {
         defaults: sliderVals.hue,
         element: document.getElementById('control-hue'),
+        bg: document.getElementById('bg-hue'),
         value: 0
     };
 
     let sat = {
         defaults: sliderVals.sat,
         element: document.getElementById('control-sat'),
+        bg: document.getElementById('bg-sat'),
         value: 0
     };
 
     let light = {
         defaults: sliderVals.light,
         element: document.getElementById('control-light'),
+        bg: document.getElementById('bg-light'),
         value: 0
     };
 
     let alpha = {
         defaults: sliderVals.alpha,
         element: document.getElementById('control-alpha'),
+        bg: document.getElementById('bg-alpha'),
         value: 0
     };
 
@@ -32,6 +36,10 @@ function setupSliders(){
 
     Object.keys(sliders).forEach(e => {
         assignDefaults(sliders[e]);
+    });
+
+    Object.keys(sliders).forEach(e => {
+        sliders[e].bg.style.backgroundColor = getNewSliderBg(e);
     });
 
     return sliders;
@@ -48,21 +56,48 @@ function assignDefaults(slider){
     element.addEventListener('input', sliderOnInput);
 }
 
-//TODO - refactor?
 function sliderOnInput(){
+    let toUpdate = [];
+
     Object.keys(sliders).forEach(e => {
         let slider = sliders[e];
         if(slider.element === this){
             slider.value = this.value;
-        } else{
-            //updateSliderBG(e);
         }
+
         updateSampleBg();
+        sliders[e].bg.style.backgroundColor = getNewSliderBg(e);
     });
 }
 
 function updateSampleBg(){
     let newColor = `hsla(${sliders.hue.value}, ${sliders.sat.value}%, ${sliders.light.value}%, ${sliders.alpha.value})`;
-    console.log(newColor);
     document.getElementById('color-sample').style.backgroundColor = newColor;
 }
+
+function getNewSliderBg(key){
+    // let hueVal = sliders.hue.value;
+    // let satVal = sliders.sat.value;
+    // let lightVal = sliders.light.value;
+    // let alphaVal = sliders.alpha.value;
+
+    // switch(e){
+    //     case "hue":
+            
+    //         break;
+    //     case "sat":
+
+    //         break;
+    //     case "light":
+
+    //         break;
+    //     case "alpha":
+
+    //         break;
+    // }
+
+    let newColor = `hsla(${sliders.hue.value}, ${sliders.sat.value}%, ${sliders.light.value}%, ${sliders.alpha.value})`;
+
+    return newColor;
+}
+

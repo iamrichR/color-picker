@@ -1,9 +1,11 @@
 function setupSliders(){
+    let sliderVals = getSliderVals();
+
     let hue = {
         defaults: sliderVals.hue,
         element: document.getElementById('control-hue'),
         bg: document.getElementById('bg-hue'),
-        value: 0
+        value: 0,
     };
 
     let sat = {
@@ -38,10 +40,6 @@ function setupSliders(){
         assignDefaults(sliders[e]);
     });
 
-    Object.keys(sliders).forEach(e => {
-        sliders[e].bg.style.backgroundColor = getNewSliderBg(e);
-    });
-
     return sliders;
 }
 
@@ -64,10 +62,10 @@ function sliderOnInput(){
         if(slider.element === this){
             slider.value = this.value;
         }
-
-        updateSampleBg();
-        sliders[e].bg.style.backgroundColor = getNewSliderBg(e);
     });
+
+    updateSampleBg();
+    updateAllSliderBgs();
 }
 
 function updateSampleBg(){
@@ -76,28 +74,27 @@ function updateSampleBg(){
 }
 
 function getNewSliderBg(key){
-    // let hueVal = sliders.hue.value;
-    // let satVal = sliders.sat.value;
-    // let lightVal = sliders.light.value;
-    // let alphaVal = sliders.alpha.value;
-
-    // switch(e){
-    //     case "hue":
-            
-    //         break;
-    //     case "sat":
-
-    //         break;
-    //     case "light":
-
-    //         break;
-    //     case "alpha":
-
-    //         break;
-    // }
-
-    let newColor = `hsla(${sliders.hue.value}, ${sliders.sat.value}%, ${sliders.light.value}%, ${sliders.alpha.value})`;
-
-    return newColor;
+    return `hsla(${sliders.hue.value}, ${sliders.sat.value}%, ${sliders.light.value}%, ${sliders.alpha.value})`;
 }
 
+function updateAllSliderBgs(){
+    Object.keys(sliders).forEach(e => {
+        updateSliderBg(e);
+    });
+}
+
+function updateSliderBg(key){
+    let gradStr = "linear-gradient(to right, ";
+
+    let gradient = getSliderGrads(key);
+
+    gradient.forEach(grad => {
+        gradStr += (grad + ",");
+    });
+
+    //removing the last extraneous comma
+    gradStr = gradStr.slice(0, -1);
+    gradStr += ")";
+
+    sliders[key].bg.style.background = gradStr;
+}

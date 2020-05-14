@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Color Picker</title>
+</head>
+<body>
+    <main>
+        <div class="display-wrapper">
+            <div id="color-sample" class="container color-sample display-panels"></div>
+            <div class="container code-display display-panels">
+                <p>some hex code</p>
+                <p>some hsla code</p>
+                <p>some rgba code</p>
+            </div>
+        </div>
+        <div class="container slider-controls">
+            <input type="range" id="control-hue" class="slider">
+            <input type="range" id="control-sat" class="slider">
+            <input type="range" id="control-light" class="slider">
+            <input type="range" id="control-alpha" class="slider">
+        </div>
+    </main>
+    <script src="index.js"></script>
+    <script src="helper-functions.js"></script>
+    <script src="slider-defaults.js"></script>
+</body>
+</html>

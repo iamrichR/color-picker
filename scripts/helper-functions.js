@@ -1,51 +1,59 @@
 function setupSliders(){
-    hue = {
+    let hue = {
         defaults: sliderVals.hue,
         element: document.getElementById('control-hue'),
         value: 0
     };
 
-    sat = {
+    let sat = {
         defaults: sliderVals.sat,
         element: document.getElementById('control-sat'),
         value: 0
     };
 
-    light = {
+    let light = {
         defaults: sliderVals.light,
         element: document.getElementById('control-light'),
         value: 0
     };
 
-    alpha = {
+    let alpha = {
         defaults: sliderVals.alpha,
         element: document.getElementById('control-alpha'),
         value: 0
     };
+
+    sliders = {
+        hue: hue,
+        sat: sat,
+        light: light,
+        alpha: alpha
+    };
+
+    Object.keys(sliders).forEach(e => {
+        assignDefaults(sliders[e]);
+    });
+
+    return sliders;
 }
 
 function assignDefaults(slider){
     let element = slider.element;
-    element.min = slider.defaults.min
-    element.max = slider.defaults.max
-    element.step = slider.defaults.step
-    element.value = slider.defaults.value
-
-    // element.onInput = function(){
-    //     slider.value = slider.element.value;
-    //     console.log(`${e.element.id}:  ${e.value}`);
-    // };
+    element.min = slider.defaults.min;
+    element.max = slider.defaults.max;
+    element.step = slider.defaults.step;
+    slider.value = slider.defaults.value;
+    slider.element.value = slider.value;
 
     element.addEventListener('input', sliderOnInput);
 }
 
-//TODO
-//yeah okay, a foreach on every input is bad, I'll refactor this later
+//TODO - refactor?
 function sliderOnInput(){
-    sliders.forEach(e => {
-        if(e.element === this){
-            e.value = this.value;
-            //console.log(e.value);
+    Object.keys(sliders).forEach(e => {
+        let slider = sliders[e];
+        if(slider.element === this){
+            slider.value = this.value;
         } else{
             //updateSliderBG(e);
         }
@@ -54,7 +62,7 @@ function sliderOnInput(){
 }
 
 function updateSampleBg(){
-    let newColor = `hsla(${sliders[0].value}, ${sliders[1].value}%, ${sliders[2].value}%, ${sliders[3].value});`;
+    let newColor = `hsla(${sliders.hue.value}, ${sliders.sat.value}%, ${sliders.light.value}%, ${sliders.alpha.value})`;
     console.log(newColor);
     document.getElementById('color-sample').style.backgroundColor = newColor;
 }

@@ -87,7 +87,3 @@ main{
     position: relative;
     top: -0.5rem;
 }
-
-#bg-light{
-    background: linear-gradient(to right, #000000, #ffffff);
-}

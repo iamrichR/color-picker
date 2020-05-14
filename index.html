@@ -11,22 +11,35 @@
         <div class="display-wrapper">
             <div id="color-sample" class="container color-sample display-panels"></div>
             <div class="container code-display display-panels">
-                <p>some hex code</p>
-                <p>some hsla code</p>
-                <p>some rgba code</p>
+                <div class="container code-wrapper">
+                    <label for="hex-code">Hex Code:</label>
+                    <textarea id="hex-code" class="code-text" readonly>rgba(0,0,0,0)</textarea>
+                </div>
+                <div class="container code-wrapper">
+                    <label for="hsla-code">HSLA Code:</label>
+                    <textarea id="hsla-code" class="code-text" readonly>rgba(0,0,0,0)</textarea>
+                </div>
+                <div class="container code-wrapper">
+                    <label for="rgba-code">RGBA Code:</label>
+                    <textarea id="rgba-code" class="code-text" readonly>rgba(0,0,0,0)</textarea>
+                </div>
             </div>
         </div>
         <div class="container slider-controls">
-            <div id="bg-hue" class="slider-bg">
+            <div id="bg-hue" class="slider-bg container">
+                <label for="control-hue">Hue</label>
                 <input type="range" id="control-hue" class="slider">
             </div>
-            <div id="bg-sat" class="slider-bg">
+            <div id="bg-sat" class="slider-bg container">
+                <label for="control-hue">Saturation</label>
                 <input type="range" id="control-sat" class="slider">
             </div>
-            <div id="bg-light" class="slider-bg">
+            <div id="bg-light" class="slider-bg container">
+                <label for="control-hue">Light</label>
                 <input type="range" id="control-light" class="slider">
             </div>
-            <div id="bg-alpha" class="slider-bg">
+            <div id="bg-alpha" class="slider-bg container">
+                <label for="control-hue">Alpha</label>
                 <input type="range" id="control-alpha" class="slider">
             </div>
         </div>

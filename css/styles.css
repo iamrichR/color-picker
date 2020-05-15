@@ -34,7 +34,6 @@ main{
 }
 
 .code-display{
-    /* background-color: khaki; */
     padding: 2rem;
     width: 70%;
     display: flex;
@@ -45,12 +44,13 @@ main{
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
     height: 30%;
 }
 
 .code-wrapper > label{
     margin: 0.5rem auto;
+    font-size: 1.5rem;
 }
 
 .code-text{
@@ -58,6 +58,8 @@ main{
     width: 80%;
     resize: none;
     text-align: center;
+    margin-left: 1rem;
+    font-size: 2.0rem;
 }
 
 .slider-controls{
